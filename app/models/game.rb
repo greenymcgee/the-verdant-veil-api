@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  after_update :delete_cache
+
   mount_uploader :banner_image, BannerImageUploader
 
   has_and_belongs_to_many :age_ratings
@@ -140,5 +142,11 @@ class Game < ApplicationRecord
     transaction do
       where(currently_playing: true).update_all(currently_playing: false)
     end
+  end
+
+  private
+
+  def delete_cache
+    Rails.cache.delete("game/#{slug}/show")
   end
 end

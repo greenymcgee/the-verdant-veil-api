@@ -65,10 +65,7 @@ class Api::GamesController < ApplicationController
     authenticate_user!
     authorize @game
     result = Api::Games::UpdateFacade.call(@game, game_update_params)
-    if result === :ok
-      Rails.cache.delete("game/#{@game.slug}/show")
-      return render_successful_show_response(:ok)
-    end
+    return render_successful_show_response(:ok) if result === :ok
 
     return render_update_failure(result) if result.is_a?(Array)
 
