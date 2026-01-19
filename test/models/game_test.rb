@@ -1,6 +1,21 @@
 require "test_helper"
 
 class GameTest < ActiveSupport::TestCase
+  test "after_update :delete_cache" do
+    old_store = Rails.cache
+    Rails.cache = ActiveSupport::Cache::MemoryStore.new
+    begin
+      game = games(:super_metroid)
+      key = "game/#{game.slug}/show"
+      Rails.cache.write(key, "cached value")
+      assert_equal "cached value", Rails.cache.read(key)
+      game.update(name: "Super Metroid")
+      assert_nil Rails.cache.read(key), "Cache should be deleted after update"
+    ensure
+      Rails.cache = old_store
+    end
+  end
+
   test "valid game" do
     game = Game.new(igdb_id: 10)
     assert game.valid?
