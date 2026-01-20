@@ -206,7 +206,9 @@ GEM
     nokogiri (1.18.7-x86_64-linux-gnu)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pagy (9.3.4)
+    pagy (43.2.3)
+      json
+      yaml
     parallel (1.26.3)
     parser (3.3.7.1)
       ast (~> 2.4.1)
@@ -360,6 +362,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yaml (0.4.0)
     zeitwerk (2.7.2)
 
 PLATFORMS
@@ -382,7 +385,7 @@ DEPENDENCIES
   jbuilder
   json_matchers
   mini_magick
-  pagy (~> 9.3)
+  pagy (~> 43.2)
   pg (~> 1.1)
   prettier (~> 4.0)
   pry (~> 0.15.2)
