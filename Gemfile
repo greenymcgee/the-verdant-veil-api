@@ -33,7 +33,7 @@ gem "devise-jwt"
 gem "pry", "~> 0.15.2"
 gem "pundit", "~> 2.5"
 gem "bullet"
-gem "pagy", "~> 9.3"
+gem "pagy", "~> 43.2"
 gem "mini_magick"
 gem "carrierwave", "~> 3.1"
 
