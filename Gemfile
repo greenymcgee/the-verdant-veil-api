@@ -30,7 +30,7 @@ gem "bootsnap", require: false
 gem "rack-cors", "~> 3.0"
 gem "devise", "~> 4.9"
 gem "devise-jwt"
-gem "pry", "~> 0.15.2"
+gem "pry", "~> 0.16.0"
 gem "pundit", "~> 2.5"
 gem "bullet"
 gem "pagy", "~> 9.3"
